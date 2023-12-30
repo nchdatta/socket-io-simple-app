@@ -45,7 +45,4 @@ This is a basic chat application built using Socket.IO, allowing real-time commu
 - Node.js
 - Express.js
 - Socket.IO
-
-## File Structure
-
-The project's file structure is organized as follows:
+- Tailwind CSS
