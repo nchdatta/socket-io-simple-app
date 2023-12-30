@@ -12,9 +12,17 @@ app.get('/', (req, res) => {
     res.sendFile("/public/index.html");
 })
 
-io.on("connection", socket => {
-    console.log("A user connected", socket.id);
-})
+io.on('connection', socket => {
+    console.log('A user connected', socket.id);
+
+    socket.on('chat message', (msg) => {
+        io.emit("chat message", msg);
+    });
+
+    socket.on('disconnect', reason => {
+        console.log('User disconnected', reason);
+    });
+});
 
 server.listen(3000, () => console.log("Listening on Port: 3000"));
 
